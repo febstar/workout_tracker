@@ -28,7 +28,7 @@ user_response = {
     'age': AGE,
 }
 
-response = requests.post(url=exercise_endpoint, json=user_response, headers=headers)
+response = requests.post(url=exercise_endpoint, json=user_response, headers=headers, timeout=60)
 result = response.json()
 
 today = datetime.now()
@@ -46,5 +46,5 @@ for exercise in result['exercises']:
         }
     }
 
-sheety_response = requests.post(url=sheety_endpoint, json=sheet_inputs, headers=headers)
+sheety_response = requests.post(url=sheety_endpoint, json=sheet_inputs, headers=headers, timeout=60)
 print(sheety_response.text)
